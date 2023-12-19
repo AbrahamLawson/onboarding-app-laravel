@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Voice extends Model
 {
     use HasFactory;
+
+
 }
