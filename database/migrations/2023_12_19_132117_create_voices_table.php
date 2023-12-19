@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('voices', function (Blueprint $table) {
             $table->id();
             $table->string('gender',50);
-            $table->string('locale',length: 30);
+            $table->string('locale', 30);
             $table->string('name',300);
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
