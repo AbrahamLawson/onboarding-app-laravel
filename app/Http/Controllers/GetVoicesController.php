@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class GetVoicesController extends Controller
 {
-    //
     public function index():JsonResponse{
         $voices = [
             'id' => 1,
