@@ -35,4 +35,18 @@ class GetVoicesController extends Controller
 
         return new JsonResponse(Voice::orderBy('created_at','desc')->limit(1)->get(),201);
     }
+    public function getVoiceOvers():JsonResponse{
+        return new JsonResponse([
+            'id' => 1,
+            'text' => "Le text saisi pour générer ma voix off",
+            'created_at' => "2023-01-01 08:08:00",
+            'updated_at' => "2023-01-02 08:08:00",
+            [
+                'id' => 2,
+                'text' => "Le text saisi pour générer ma seconde voix off",
+                'created_at' => "2023-01-01 08:08:00",
+                'updated_at' => "2023-01-02 08:08:00",
+            ]
+        ],200);
+    }
 }
