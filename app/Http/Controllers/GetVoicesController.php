@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VoiceOverPostRequest;
 use App\Models\Voice;
+use App\Models\Voiceover;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\VoicePostRequest;
@@ -49,5 +51,11 @@ class GetVoicesController extends Controller
                 'updated_at' => "2023-01-02 08:08:00",
             ]
         ],200);
+    }
+    public function insertionVoicesOvers(VoiceOverPostRequest $request):JsonResponse{
+        $voiceOver = new Voiceover();
+        $voiceOver->text = $request->get('text');
+        $voiceOver->save();
+        return new JsonResponse($voiceOver,201);
     }
 }
