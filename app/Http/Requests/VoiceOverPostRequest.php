@@ -23,7 +23,7 @@ class VoiceOverPostRequest extends FormRequest
     {
         return [
             //Les regles de validations de donnés
-           "text"=>['required','string','max:5000']
+           'text' => ['required', 'string', 'max:5000']
         ];
     }
 }

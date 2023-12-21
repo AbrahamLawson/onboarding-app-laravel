@@ -23,9 +23,9 @@ class VoicePostRequest extends FormRequest
     {
         return [
             //
-            "locale"=>["required",'alpha','max:30'],
-            "gender"=>["required",'in:Male,Female'],
-            "name"=>["required",'alpha','max:50']
+            'locale'=> ['required', 'alpha' ,'max:30'],
+            'gender'=> ['required', 'in:Male, Female'],
+            'name'=> ['required', 'alpha', 'max:50'],
 
         ];
     }

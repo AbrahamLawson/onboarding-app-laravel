@@ -16,16 +16,15 @@ class GetVoicesController extends Controller
        $getGender=  $request->get('gender');
        $getName = $request->get('name');
 
-
         //Retour de la function et Conditions pour filtrer la requete.
-        return new JsonResponse( Voice::where('gender',$getGender)->where('name', $getName)->orderBy('updated_at', 'desc')->get(),200);
+        return new JsonResponse( Voice::where('gender', $getGender)->where('name', $getName)->orderBy('updated_at', 'desc')->get(), 200);
 
     }
     public function locale(Request $request):JsonResponse{
         $getLocal = $request->get('locale');
 
         //return new JsonResponse( Voice::where('locale',$getLocal)->orderBy('created_at','desc')->get(),200);
-        return new JsonResponse( Voice::where('locale',$getLocal)->orderBy('created_at','desc')->limit(5)->get(),200);
+        return new JsonResponse( Voice::where('locale', $getLocal)->orderBy('created_at', 'desc')->limit(5)->get(), 200);
 
     }
     public function insertionVoices(VoicePostRequest $request):JsonResponse{
@@ -36,12 +35,13 @@ class GetVoicesController extends Controller
         $voice->name= $request->get('name');
         $voice->save();
 
-        return new JsonResponse(Voice::orderBy('created_at','desc')->limit(1)->get(),201);
+        return new JsonResponse(Voice::orderBy('created_at', 'desc')->limit(1)->get(), 201);
     }
     public function getVoiceOvers():JsonResponse{
+
         return new JsonResponse([
             'id' => 1,
-            'text' => "Le text saisi pour générer ma voix off",
+            'text' => 'Le text saisi pour générer ma voix off',
             'created_at' => "2023-01-01 08:08:00",
             'updated_at' => "2023-01-02 08:08:00",
             [
@@ -50,12 +50,7 @@ class GetVoicesController extends Controller
                 'created_at' => "2023-01-01 08:08:00",
                 'updated_at' => "2023-01-02 08:08:00",
             ]
-        ],200);
+        ], 200);
     }
-    public function insertionVoicesOvers(VoiceOverPostRequest $request):JsonResponse{
-        $voiceOver = new Voiceover();
-        $voiceOver->text = $request->get('text');
-        $voiceOver->save();
-        return new JsonResponse($voiceOver,201);
-    }
+
 }
