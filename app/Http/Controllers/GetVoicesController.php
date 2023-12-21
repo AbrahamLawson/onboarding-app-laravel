@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Voice;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Http\Requests\VoicePostRequest;
 
 class GetVoicesController extends Controller
 {
@@ -25,7 +26,7 @@ class GetVoicesController extends Controller
         return new JsonResponse( Voice::where('locale',$getLocal)->orderBy('created_at','desc')->limit(5)->get(),200);
 
     }
-    public function insertionVoices(Request $request):JsonResponse{
+    public function insertionVoices(VoicePostRequest $request):JsonResponse{
 
         $voice = new Voice();
         $voice->locale= $request->get('locale');
