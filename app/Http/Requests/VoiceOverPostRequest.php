@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VoicePostRequest extends FormRequest
+class VoiceOverPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,8 @@ class VoicePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-            'locale'=> ['required', 'alpha' ,'max:30'],
-            'gender'=> ['required', 'in:Male, Female'],
-            'name'=> ['required', 'alpha', 'max:50'],
-
+            //Les regles de validations de donnés
+           'text' => ['required', 'string', 'max:5000']
         ];
     }
 }

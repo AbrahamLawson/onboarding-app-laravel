@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('voiceovers', function (Blueprint $table) {
             $table->id();
-            $table->string('text',5000);
+            $table->string('text', 5000);
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });
