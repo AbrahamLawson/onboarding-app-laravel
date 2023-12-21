@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('voices ', [GetVoicesController::class, 'insertionVoices']);
 Route::post('abraham/voiceovers', [VoiceoverController::class, 'create']);
+Route::resource('voiceovers', VoiceoverController::class)->only([
+    'destroy',
+]);

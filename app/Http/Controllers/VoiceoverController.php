@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VoiceOverPostRequest;
 use App\Models\Voiceover;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class VoiceoverController extends Controller
 {
@@ -21,5 +22,12 @@ class VoiceoverController extends Controller
     {
 
         return new JsonResponse(Voiceover::all(), 200);
+    }
+    public function destroy(Voiceover $voiceover): JsonResponse
+    {
+        $voiceover->delete();
+
+        return new JsonResponse(null, 204);
+
     }
 }
