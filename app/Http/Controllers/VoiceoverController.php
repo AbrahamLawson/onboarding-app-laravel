@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 class VoiceoverController extends Controller
 {
     //
-    public function create(VoiceOverPostRequest $request): JsonResponse
+    public function store(VoiceOverPostRequest $request): JsonResponse
     {
         $voiceOver = Voiceover::create([
             'text' => $request->get('text'),
@@ -21,5 +21,12 @@ class VoiceoverController extends Controller
     {
 
         return new JsonResponse(Voiceover::all(), 200);
+    }
+    public function destroy(Voiceover $voiceover): JsonResponse
+    {
+        $voiceover->delete();
+
+        return new JsonResponse(null, 204);
+
     }
 }
