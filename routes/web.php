@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GetVoicesController;
+use App\Http\Controllers\VoiceoverController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('voices',[GetVoicesController::class, 'index']);
-Route::get('voices/locale',[GetVoicesController::class, 'locale']);
-Route::get('api/abraham/voiceovers',[GetVoicesController::class, 'getVoiceOvers']);
+Route::get('voices', [GetVoicesController::class, 'index']);
+Route::get('voices/locale', [GetVoicesController::class, 'locale']);
+Route::get('voiceovers', [VoiceoverController::class, 'getVoiceOvers']);
 
