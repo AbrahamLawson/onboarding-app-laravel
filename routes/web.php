@@ -21,5 +21,5 @@ Route::get('/', function () {
 });
 Route::get('voices', [GetVoicesController::class, 'index']);
 Route::get('voices/locale', [GetVoicesController::class, 'locale']);
-Route::get('voiceovers', [VoiceoverController::class, 'getVoiceOvers']);
+Route::get('voiceovers', [VoiceoverController::class, 'index']);
 
