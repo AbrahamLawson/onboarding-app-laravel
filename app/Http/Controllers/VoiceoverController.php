@@ -29,4 +29,9 @@ class VoiceoverController extends Controller
         return new JsonResponse(null, 204);
 
     }
+    public function show(Voiceover $voiceover): JsonResponse
+    {
+
+        return new JsonResponse($voiceover, 200);
+    }
 }
