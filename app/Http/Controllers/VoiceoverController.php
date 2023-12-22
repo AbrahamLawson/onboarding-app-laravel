@@ -13,6 +13,7 @@ class VoiceoverController extends Controller
     {
         $voiceOver = Voiceover::create([
             'text' => $request->get('text'),
+            'voice_id' => $request->get('voice_id'),
         ]);
 
         return new JsonResponse($voiceOver, 201);
@@ -31,7 +32,6 @@ class VoiceoverController extends Controller
     }
     public function show(Voiceover $voiceover): JsonResponse
     {
-
         return new JsonResponse($voiceover, 200);
     }
 }

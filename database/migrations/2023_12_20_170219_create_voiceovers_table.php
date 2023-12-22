@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //Creation de la table et des colonnes.
         Schema::create('voiceovers', function (Blueprint $table) {
             $table->id();
             $table->string('text', 5000);

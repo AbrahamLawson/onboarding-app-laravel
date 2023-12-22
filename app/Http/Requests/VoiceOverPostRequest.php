@@ -22,8 +22,9 @@ class VoiceOverPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //Les regles de validations de donnés
-           'text' => ['required', 'string', 'max:5000']
+            //Les regles de validations de donnés.
+           'text' => ['required', 'string', 'max:5000'],
+            'voice_id' => ['required', 'exists:voices,id'],
         ];
     }
 }
