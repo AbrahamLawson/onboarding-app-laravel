@@ -22,11 +22,10 @@ class VoicePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            //Les regles de validations de donnés.
             'locale'=> ['required', 'alpha' ,'max:30'],
             'gender'=> ['required', 'in:Male, Female'],
             'name'=> ['required', 'alpha', 'max:50'],
-
         ];
     }
 }
