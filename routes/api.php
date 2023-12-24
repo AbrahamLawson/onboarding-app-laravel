@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GetVoicesController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VoiceoverController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,4 @@ Route::post('voices ', [GetVoicesController::class, 'insertionVoices']);
 Route::resource('voiceovers', VoiceoverController::class)->only([
     'destroy', 'index', 'store', 'show',
 ]);
+Route::resource('project', ProjectController::class);

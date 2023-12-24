@@ -20,7 +20,6 @@ class VoiceoverController extends Controller
     }
     public function index(): JsonResponse
     {
-
         return new JsonResponse(Voiceover::all(), 200);
     }
     public function destroy(Voiceover $voiceover): JsonResponse
