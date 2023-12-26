@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\Project;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -34,11 +35,15 @@ class ProjectController extends Controller
         return new JsonResponse(null, 204);
     }
 
-    public function update(Project $project, ProjectPostRequest $request): JsonResponse
+    public function update(Project $project, ProjectUpdateRequest $request): JsonResponse
     {
-        $project->update([
-            'title' => $request->get('title')
-        ]);
+		$project->title = $request->get('title');
+		if($request->get('description') != null ){
+			$project->description = $request->get('description');
+		}
+		$project->save();
+		
         return new JsonResponse($project);
+	
     }
 }
