@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GetVoicesController;
+use App\Http\Controllers\ParamController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VoiceoverController;
 use Illuminate\Http\Request;
@@ -25,5 +26,8 @@ Route::resource('voiceovers', VoiceoverController::class)->only([
     'destroy', 'index', 'store', 'show',
 ]);
 Route::resource('project', ProjectController::class)->only([
+	'destroy', 'index', 'store', 'show', 'update',
+]);
+Route::resource('project.param', ParamController::class)->only([
 	'destroy', 'index', 'store', 'show', 'update',
 ]);
