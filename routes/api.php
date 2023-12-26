@@ -24,4 +24,6 @@ Route::post('voices ', [GetVoicesController::class, 'insertionVoices']);
 Route::resource('voiceovers', VoiceoverController::class)->only([
     'destroy', 'index', 'store', 'show',
 ]);
-Route::resource('project', ProjectController::class);
+Route::resource('project', ProjectController::class)->only([
+	'destroy', 'index', 'store', 'show', 'update',
+]);
