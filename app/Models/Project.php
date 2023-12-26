@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'description'];
     use HasFactory;
 
     public function toArray()
@@ -15,6 +15,7 @@ class Project extends Model
         return [
             'id' => $this->id,
             'title' => $this->title,
+			'description' => $this->description,
         ];
     }
 }
