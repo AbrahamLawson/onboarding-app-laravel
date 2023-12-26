@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('params', function (Blueprint $table) {
             $table->id();
+			$table->bigInteger('project_id')->unsigned();
 			$table->foreign('project_id')->references('id')->on('projects');
 			$table->text('value', 100);
 			$table->unsignedInteger('order');
-			$table->bigInteger('project_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
