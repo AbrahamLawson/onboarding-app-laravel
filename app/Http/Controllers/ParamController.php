@@ -15,7 +15,7 @@ class ParamController extends Controller
 	
 	public function store(Project $project,Request $request): JsonResponse{
 		//utiliser la relation entre project et params
-		$project->params->create([
+		$project->params()->create([
 			'value' => $request->get('value'),
 			'order' => $request->get('order'),
 		]);
