@@ -23,6 +23,7 @@ class ProjectPostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:50'],
+			'description' => ['required', 'string', 'max:200'],
         ];
     }
 }

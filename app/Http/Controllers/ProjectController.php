@@ -18,6 +18,7 @@ class ProjectController extends Controller
     {
         $project = Project::create([
             'title' => $request->get('title'),
+			'description' => $request->get('description'),
         ]);
         return new JsonResponse($project, 201);
     }

@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->string('title', 50);
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
-        });
+		Schema::table('projects', function (Blueprint $table) {
+			$table->text('description', 200)->after('title');
+		});
     }
 
     /**
@@ -24,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+		Schema::dropIfExists('projects');
     }
 };
