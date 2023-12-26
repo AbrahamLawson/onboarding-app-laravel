@@ -37,9 +37,11 @@ class ProjectController extends Controller
 
     public function update(Project $project, ProjectUpdateRequest $request): JsonResponse
     {
-		$project->title = $request->get('title');
 		if($request->get('description') != null ){
 			$project->description = $request->get('description');
+		}
+		if($request->get('title') != null ){
+			$project->title = $request->get('title');
 		}
 		$project->save();
 		
