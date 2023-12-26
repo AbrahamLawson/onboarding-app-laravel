@@ -10,17 +10,17 @@ use Illuminate\Http\Request;
 class ParamController extends Controller
 {
     public function index(Project $project): JsonResponse{
-		return new JsonResponse($project->params);
+		return new JsonResponse($project->params, 200);
 	}
 	
 	public function store(Project $project,Request $request): JsonResponse{
-		$param = Param::create([
+		//utiliser la relation entre project et params
+		$project->params->create([
 			'value' => $request->get('value'),
 			'order' => $request->get('order'),
-			'project_id' => $project->id,
 		]);
 		
-		return new JsonResponse($param, 201);
+		return new JsonResponse($project->params, 201);
 	}
 	
 	public function show(Project $project, Param $param): JsonResponse{
