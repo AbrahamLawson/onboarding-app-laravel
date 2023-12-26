@@ -16,8 +16,11 @@ class GetVoicesController extends Controller
        $getGender=  $request->get('gender');
        $getName = $request->get('name');
 
+
         //Retour de la function et Conditions pour filtrer la requete.
         return new JsonResponse( Voice::where('gender', $getGender)->where('name', $getName)->orderBy('updated_at', 'desc')->get(), 200);
+
+
 
     }
     public function locale(Request $request):JsonResponse{

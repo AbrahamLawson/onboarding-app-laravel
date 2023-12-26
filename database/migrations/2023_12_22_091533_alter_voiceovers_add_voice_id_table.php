@@ -25,7 +25,6 @@ return new class extends Migration
     {
         //
         Schema::table('voiceovers', function (Blueprint $table) {
-
             $table->dropForeign('voiceovers_voice_id_foreign');
             $table->dropColumn('voice_id');
         });
