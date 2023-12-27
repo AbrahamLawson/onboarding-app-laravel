@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ParamRequest;
+use App\Http\Requests\ParamUpdateRequest;
 use App\Models\Param;
 use App\Models\Project;
 use Illuminate\Http\JsonResponse;
@@ -13,7 +15,7 @@ class ParamController extends Controller
 		return new JsonResponse($project->params, 200);
 	}
 	
-	public function store(Project $project,Request $request): JsonResponse{
+	public function store(Project $project,ParamRequest $request): JsonResponse{
 		//utiliser la relation entre project et params
 		$project->params()->create([
 			'value' => $request->get('value'),
@@ -27,7 +29,7 @@ class ParamController extends Controller
 		return new JsonResponse($param, 200);
 	}
 	
-	public function update(Project $project, Param $param, Request $request): JsonResponse{
+	public function update(Project $project, Param $param, ParamUpdateRequest $request): JsonResponse{
 		if($request->get('value') != null ){
 			$param->value = $request->get('value');
 		}
