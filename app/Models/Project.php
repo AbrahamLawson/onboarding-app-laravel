@@ -18,6 +18,8 @@ class Project extends Model
             'id' => $this->id,
             'title' => $this->title,
 			'description' => $this->description,
+			'params' => $this->params->sortBy('order'),
+			'nmb_params' => $this->params->count(),
         ];
     }
 	public function params(): HasMany{
