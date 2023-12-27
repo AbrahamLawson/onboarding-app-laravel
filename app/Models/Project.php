@@ -18,9 +18,10 @@ class Project extends Model
             'id' => $this->id,
             'title' => $this->title,
 			'description' => $this->description,
+			'params' => $this->params,
         ];
     }
 	public function params(): HasMany{
-		return $this->hasMany(Param::class);
+		return $this->hasMany(Param::class)->orderBy('created_at', 'ASC');
 	}
 }
